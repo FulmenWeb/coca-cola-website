@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coca Cola Official Website</title>
+<style>
+    html{
+    scroll-behavior:smooth;
+}
+.navbar{
+    position:absolute;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    background:rgba(0,0,0,0.4);
+    z-index:100;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: none;
+  background: #ffffff;
+  color: #c40e13;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+    color: white;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #c40e13, #ff1e1e, #a50000, #e61e1e);
+    background-size: 300% 300%;
+    animation: colaGradient 12s ease infinite;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: white;
+    color: #c40e13;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px; /* small curve, still rectangular */
+    margin-top: 15px;
+}
+.cta-button:hover{
+    background-color:#c40e13;
+    color:white;
+    transform:scale(1.05);
+    transition:0.3s;
+}
+
+@keyframes colaGradient {
+ 0% { background-position: 0% 50%; }
+ 50% { background-position: 100% 50%; }
+ 100% { background-position: 0% 50%; }
+}
+
+/* Floating bubbles */
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: rise 8s infinite ease-in;
+}
+
+@keyframes rise {
+ 0% { transform: translateY(0) scale(1); opacity: 0; }
+ 20% { opacity: 0.6; }
+ 100% { transform: translateY(-110vh) scale(0.5); opacity: 0; }
+}
+
+.logo {
+    position: absolute;
+    top: 50px;   /* Move it down */
+    left: 10px;
+    width: 80px;
+    z-index: 1000;
+}
+/* Bottle at top left */
+.bottle {
+  position: absolute;
+  top: 70px;
+  left: 30px;
+  width: 80px;
+  z-index: 20;
+  animation: sway 4s ease-in-out infinite;
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.4));
+}
+
+.bottle:hover{
+    transform:scale(1.1);
+}
+section {
+    padding: 100px 20px;
+}
+
+/* Space between sections */
+section + section {
+    margin-top: 80px;
+}
+
+@keyframes sway {
+ 0%, 100% { transform: rotate(-3deg); }
+ 50% { transform: rotate(3deg); }
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  color: white;
+  text-align: center;
+  padding-top: 40vh;
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 8px 0;
+  }
+}
+
+
+.nav-links{
+    display:flex;
+    gap:20px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.menu-icon{
+    display:none;
+    font-size:30px;
+    color:white;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.nav-links{
+    display:none;
+    flex-direction:column;
+    width:100%;
+    text-align:center;
+    margin-top:15px;
+}
+
+.nav-links.show{
+    display:flex;
+}
+
+.menu-icon{
+    display:block;
+}
+
+.navbar{
+    flex-wrap:wrap;
+}
+}
+.menu-icon{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:30px;
+    color:white;
+    cursor:pointer;
+    z-index:1000;
+}
+#typing{
+    display:inline-block;
+    border-right:3px solid white;
+    padding-right:5px;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink{
+    50%{
+        border-color:transparent;
+    }
+}
+.fade-up{
+    opacity:0;
+    transform:translateY(50px);
+    transition:all 1s ease;
+}
+
+.fade-up.show{
+    opacity:1;
+    transform:translateY(0);
+}
+#topBtn{
+    display:none;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:999;
+    border:none;
+    outline:none;
+    background:#ffffff;
+    color:#c40e13;
+    cursor:pointer;
+    padding:12px 15px;
+    border-radius:50%;
+    font-size:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+#topBtn:hover{
+    background:#c40e13;
+    color:white;
+}
+</style>
+</head>
+<body>
+    
+  <nav class="navbar">
+    <h2 class="logo">Coca-Cola</h2>
+
+    <div class="menu-icon" onclick="toggleMenu()">
+        ☰
+    </div>
+
+    <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="brand.html">Brands</a>
+        <a href="sustainability.html">Sustainability</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<!-- Bottle SVG at top left -->
+<svg class="bottle" viewBox="0 0 100 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bottle body -->
+  <path d="M30 60 L30 250 Q30 270 50 270 Q70 270 70 250 L70 60 Q70 40 60 35 L40 35 Q30 40 30 60 Z" 
+        fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+  <!-- Bottle neck -->
+  <rect x="42" y="15" width="16" height="25" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+  <!-- Cap -->
+  <rect x="40" y="5" width="20" height="12" rx="3" fill="#c40e13" stroke="#900" stroke-width="2"/>
+  <!-- Coca-Cola label -->
+  <rect x="32" y="120" width="36" height="40" fill="#c40e13" rx="5"/>
+  <text x="50" y="145" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">Coca-Cola</text>
+</svg>
+
+<!-- Bubbles -->
+<div class="bubble" style="left:10%; width:40px; height:40px; animation-delay:0s;"></div>
+<div class="bubble" style="left:25%; width:25px; height:25px; animation-delay:2s;"></div>
+<div class="bubble" style="left:45%; width:60px; height:60px; animation-delay:1s;"></div>
+<div class="bubble" style="left:70%; width:35px; height:35px; animation-delay:3s;"></div>
+<div class="bubble" style="left:85%; width:50px; height:50px; animation-delay:4s;"></div>
+
+<div class="content">
+  <h1 id="typing"></h1>
+
+  <p>
+    Welcome to The Coca-Cola Company, one of the world’s most iconic beverage brands.
+    We are committed to refreshing the world, inspiring moments of happiness, and creating
+    shared experiences that connect people across more than 200 countries.
+  </p>
+
+  <p>
+    Our portfolio includes Coca-Cola Classic, Coca-Cola Zero Sugar, Sprite, Fanta,
+    and many more refreshing drinks designed to suit every lifestyle and moment.
+  </p>
+
+  <p>
+    Every bottle represents quality, innovation, and a long-standing tradition of bringing joy to life.
+  </p>
+
+  
+  
+</div>
+
+<section id="home">
+
+    <h2 class="fade-up">Refreshing the World Together</h2>
+
+    <p class="fade-up">
+        Welcome to The Coca-Cola Company, where refreshment meets innovation.
+        We are dedicated to creating beverages that bring joy, connection, and unforgettable moments
+        to people across more than 200 countries worldwide.
+    </p>
+
+    <p class="fade-up">
+        From the iconic Coca-Cola taste to a wide range of refreshing drinks, we continue to inspire happiness
+        and deliver quality that generations have trusted for over a century.
+    </p>
+
+    <h3 class="fade-up">Experience Refreshment Like Never Before</h3>
+
+    <p>
+        Explore our world of beverages, discover your favorite brands, and learn more about our commitment
+        to sustainability and global impact.
+    </p>
+
+    <!-- Optional button -->
+    <a href="brand.html" class="cta-button fade-up">Explore Our Brands</a>
+
+</section>
+
+
+<footer>
+     <p>© 2026 The Coca-Cola Company. All rights reserved.</p>
+
+<p> 📘  📸  ▶️  🐦  💼</p>
+</footer>
+<button id="topBtn" onclick="topFunction()">⬆</button>
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("show");
+}
+
+const text = "OPEN HAPPINESS";
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 150);
+    }
+}
+
+window.onload = function () {
+    typeWriter();
+};
+
+const fadeElements = document.querySelectorAll(".fade-up");
+
+window.addEventListener("scroll", () => {
+    fadeElements.forEach((element) => {
+        const position = element.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+
+        if(position < screenHeight - 100){
+            element.classList.add("show");
+        }
+    });
+});
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function(){
+    if(document.documentElement.scrollTop > 50){
+        topBtn.style.display = "block";
+    }else{
+        topBtn.style.display = "none";
+    }
+});
+
+function topFunction(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+</script>
+
+</body>
+</html>

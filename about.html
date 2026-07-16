@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coca Cola Official Website</title>
+<style>
+    .navbar{
+    position:absolute;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    background:rgba(0,0,0,0.4);
+    z-index:100;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: none;
+  background: #ffffff;
+  color: #c40e13;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+    color: white;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #c40e13, #ff1e1e, #a50000, #e61e1e);
+    background-size: 300% 300%;
+    animation: colaGradient 12s ease infinite;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: white;
+    color: #c40e13;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px; /* small curve, still rectangular */
+    margin-top: 15px;
+}
+
+@keyframes colaGradient {
+ 0% { background-position: 0% 50%; }
+ 50% { background-position: 100% 50%; }
+ 100% { background-position: 0% 50%; }
+}
+
+/* Floating bubbles */
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: rise 8s infinite ease-in;
+}
+
+@keyframes rise {
+ 0% { transform: translateY(0) scale(1); opacity: 0; }
+ 20% { opacity: 0.6; }
+ 100% { transform: translateY(-110vh) scale(0.5); opacity: 0; }
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 80px;
+    z-index: 1000;
+}
+#about{
+    padding-top:120px;
+}
+
+
+
+.content {
+  position: relative;
+  z-index: 10;
+  color: white;
+  text-align: center;
+  padding-top: 40vh;
+}
+#sustainability {
+    padding-top: 160px;
+}
+h2 {
+    margin-bottom: 40px;
+}
+
+h3 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+ul {
+    margin-bottom: 40px;
+}
+
+
+
+.nav-links{
+    display:flex;
+    gap:20px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.menu-icon{
+    display:none;
+    font-size:30px;
+    color:white;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.nav-links{
+    display:none;
+    flex-direction:column;
+    width:100%;
+    text-align:center;
+    margin-top:15px;
+}
+
+.nav-links.show{
+    display:flex;
+}
+
+.menu-icon{
+    display:block;
+}
+
+.navbar{
+    flex-wrap:wrap;
+}
+}
+.menu-icon{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:30px;
+    color:white;
+    cursor:pointer;
+    z-index:1000;
+}
+#topBtn{
+    display:none;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:999;
+    border:none;
+    outline:none;
+    background:#ffffff;
+    color:#c40e13;
+    cursor:pointer;
+    padding:12px 15px;
+    border-radius:50%;
+    font-size:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+#topBtn:hover{
+    background:#c40e13;
+    color:white;
+}
+</style>
+</head>
+<body>
+    
+    <nav class="navbar">
+    <h2 class="logo">Coca-Cola</h2>
+
+    <div class="menu-icon" onclick="toggleMenu()">
+        ☰
+    </div>
+
+    <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="brand.html">Brands</a>
+        <a href="sustainability.html">Sustainability</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+
+<!-- Bubbles -->
+<div class="bubble" style="left:10%; width:40px; height:40px; animation-delay:0s;"></div>
+<div class="bubble" style="left:25%; width:25px; height:25px; animation-delay:2s;"></div>
+<div class="bubble" style="left:45%; width:60px; height:60px; animation-delay:1s;"></div>
+<div class="bubble" style="left:70%; width:35px; height:35px; animation-delay:3s;"></div>
+<div class="bubble" style="left:85%; width:50px; height:50px; animation-delay:4s;"></div>
+
+
+<section id="about">
+
+<h1>ABOUT US</h1>
+
+<p>
+The Coca-Cola Company is one of the world's leading beverage companies, serving millions of consumers across more than 200 countries and territories. Since its founding in 1886, the company has built a reputation for producing high-quality, refreshing beverages that bring people together and create memorable moments.
+</p>
+
+<p>
+Our diverse portfolio includes sparkling soft drinks, fruit juices, bottled water, sports drinks, tea, coffee, and many other beverages designed to meet the needs and preferences of people of all ages. We continuously innovate to provide products that combine great taste, quality, and customer satisfaction.
+</p>
+
+<p>
+At Coca-Cola, we believe that every beverage has the power to refresh, inspire, and connect people. Through our commitment to excellence, innovation, and responsible business practices, we strive to make a positive difference in every community where we operate.
+</p>
+
+<h2>Our Mission</h2>
+
+<ul>
+<li>Refresh the world with quality beverages.</li>
+<li>Inspire moments of happiness and connection.</li>
+<li>Create value for customers, communities, and partners.</li>
+<li>Deliver trusted products with the highest quality standards.</li>
+</ul>
+
+<h2>Our Vision</h2>
+
+<p>
+Our vision is to remain the world's most trusted beverage company by creating sustainable growth, embracing innovation, and building meaningful relationships with consumers around the globe. We aim to refresh the world while protecting the environment and supporting the communities we serve.
+</p>
+
+<h2>Our Core Values</h2>
+
+<ul>
+<li>Integrity in everything we do.</li>
+<li>Quality and excellence.</li>
+<li>Innovation and continuous improvement.</li>
+<li>Respect for people and diversity.</li>
+<li>Environmental responsibility.</li>
+<li>Customer satisfaction.</li>
+</ul>
+
+<p>
+For more than a century, The Coca-Cola Company has continued to grow by adapting to changing consumer needs while remaining committed to its purpose of refreshing the world and making a positive impact. Every bottle and every beverage reflects our dedication to quality, innovation, and creating moments of happiness for people everywhere.
+</p>
+
+</section>
+
+
+
+<hr>
+<footer>
+     <p>© 2026 The Coca-Cola Company. All rights reserved.</p>
+
+<p>📘  📸  ▶️  🐦  💼</p>
+</footer>
+<button id="topBtn" onclick="topFunction()">⬆</button>
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("show");
+}
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function(){
+    if(document.documentElement.scrollTop > 50){
+        topBtn.style.display = "block";
+    }else{
+        topBtn.style.display = "none";
+    }
+});
+
+function topFunction(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+</script>
+</body>
+</html>
