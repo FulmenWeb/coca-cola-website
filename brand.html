@@ -129,7 +129,7 @@ img {
 }
 
 .menu-icon{
-    display:block;
+    display:none;
     font-size:30px;
     color:white;
     cursor:pointer;
@@ -139,10 +139,14 @@ img {
 
 .nav-links{
     display:none;
-    flex-direction:column;
+    position:absolute;
+    top:70px;
+    right:0;
     width:100%;
+    flex-direction:column;
+    background:rgba(0,0,0,0.8);
     text-align:center;
-    margin-top:15px;
+    padding:20px;
 }
 
 .nav-links.show{
@@ -152,21 +156,6 @@ img {
 .menu-icon{
     display:block;
 }
-
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-}
-.menu-icon{
-    position:relative;
-    top:15px;
-    right:20px;
-    font-size:30px;
-    color:white;
-    cursor:pointer;
-    z-index:1000;
 }
 #topBtn{
     display:none;
@@ -228,15 +217,7 @@ img {
 #brands {
     padding-top: 150px;
 }
-   @media(max-width:768px){
-    .nav-links{
-        display:none !important;
-    }
 
-    .nav-links.show{
-        display:flex !important;
-    }
-   }
 </style>
 </head>
 <body>
