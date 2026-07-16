@@ -94,9 +94,9 @@ img {
 }
 
 .logo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    position: relative;
+    top: 0;
+    left: 0;
     width: 80px;
     z-index: 10;
 }
@@ -173,11 +173,13 @@ ul {
 }
 
 .navbar{
-    flex-wrap:wrap;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 }
 .menu-icon{
-    position:absolute;
+    position:relative;
     top:15px;
     right:20px;
     font-size:30px;
